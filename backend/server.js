@@ -11,12 +11,16 @@ const port = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key";
 
 // CORS setup
+
 app.use(
   cors({
-    origin: ["https://lawnmower-project-frontend.vercel.app"], // Allow your frontend Vercel URL
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow methods needed by your app
-    allowedHeaders: ["Content-Type", "Authorization"], // Headers needed for requests
-    credentials: true, // Enable this if using cookies for authentication
+    origin: [
+      "http://localhost:3000",
+      "https://lawnmower-project-frontend.vercel.app",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   })
 );
 
