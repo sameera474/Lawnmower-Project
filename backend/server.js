@@ -10,6 +10,16 @@ const app = express();
 const port = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key";
 
+// CORS setup
+app.use(
+  cors({
+    origin: ["https://lawnmower-project-frontend.vercel.app"], // Allow your frontend Vercel URL
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow methods needed by your app
+    allowedHeaders: ["Content-Type", "Authorization"], // Headers needed for requests
+    credentials: true, // Enable this if using cookies for authentication
+  })
+);
+
 app.use(express.json());
 
 // MongoDB Connection
@@ -148,18 +158,3 @@ app.delete("/api/history", verifyToken, async (req, res) => {
 //     methods: ["GET", "POST", "PUT", "DELETE"],
 //   })
 // );
-
-// CORS configuration
-app.use(
-  cors({
-    origin: [
-      "https://lawnmower-project-frontend.vercel.app", // Your Vercel frontend
-      "http://localhost:3000", // Localhost for local development
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Include OPTIONS
-    allowedHeaders: ["Content-Type", "Authorization"], // Specify necessary headers
-    credentials: true,
-  })
-);
-
-app.options("*", cors());
