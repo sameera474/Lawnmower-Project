@@ -10,8 +10,6 @@ const app = express();
 const port = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key";
 
-// Middleware
-app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 
 // MongoDB Connection
@@ -140,13 +138,14 @@ app.delete("/api/history", verifyToken, async (req, res) => {
   }
 });
 
-// const cors = require("cors");
-// // Allow all origins
-// app.use(cors());
-// // Allow specific origin(s)
-// app.use(
-//   cors({
-//     origin:
-//       "https://lawnmower-project-frontend-lzbujqndy-sameeras-projects-7a5677db.vercel.app/",
-//   })
-// );
+// CORS configuration
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000", // Allow local development
+      "https://lawnmower-project-frontend.vercel.app", // Allow Vercel frontend
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific HTTP methods
+    credentials: true, // Enable if you need to use cookies or sessions
+  })
+);

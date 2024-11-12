@@ -336,14 +336,17 @@ const Dashboard = ({ user }) => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/history", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(historyEntry),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/history`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(historyEntry),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to save data.");

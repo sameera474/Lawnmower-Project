@@ -17,11 +17,14 @@ const History = () => {
       return;
     }
     try {
-      const response = await fetch("http://localhost:5000/api/history", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/history`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (!response.ok) {
         throw new Error(`Failed to fetch history data: ${response.statusText}`);
       }
@@ -42,12 +45,15 @@ const History = () => {
       return;
     }
     try {
-      const response = await fetch("http://localhost:5000/api/history", {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/history`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (!response.ok) {
         throw new Error(`Failed to clear history data: ${response.statusText}`);
       }

@@ -14,11 +14,14 @@ const Settings = () => {
     const fetchSettings = async () => {
       const token = localStorage.getItem("token");
       try {
-        const response = await axios.get("http://localhost:5000/api/settings", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/settings`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         const { accountName, email, notifications, theme } = response.data;
         setAccountName(accountName);
         setEmail(email);
@@ -35,7 +38,7 @@ const Settings = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/settings",
+        `${process.env.REACT_APP_API_URL}/api/settings`,
         { accountName, email, notifications, theme },
         {
           headers: {
