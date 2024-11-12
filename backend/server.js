@@ -5,8 +5,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const verifyToken = require("./middleware/verifyToken"); // Ensure correct path to middleware
-
 const app = express();
+
 const port = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret_key";
 
@@ -146,6 +146,5 @@ app.use(
       "https://lawnmower-project-frontend.vercel.app", // Frontend URL in Vercel
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
   })
 );
