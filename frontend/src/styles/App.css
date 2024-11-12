@@ -1,0 +1,103 @@
+/* Reset basic styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Navbar styling */
+nav {
+  background-color: #333;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff6347;
+}
+
+/* Responsive grid container */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* Page Titles */
+h1,
+h2,
+h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Dashboard-specific styling */
+.dashboard,
+.history {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.button {
+  background-color: #ff6347;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 10px;
+}
+
+.button:hover {
+  background-color: #ff4500;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  nav {
+    padding: 10px;
+  }
+
+  nav a {
+    margin: 0 10px;
+    font-size: 0.9em;
+  }
+
+  .chart-container,
+  .dashboard,
+  .history {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-size: 1.5em;
+  }
+}

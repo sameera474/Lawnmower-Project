@@ -1,0 +1,45 @@
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url("../images/HomePage.jpg"); /* Add a background image */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.home-content {
+  max-width: 600px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.home-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.home-content p {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+.home-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.home-button:hover {
+  background-color: #0056b3;
+}
