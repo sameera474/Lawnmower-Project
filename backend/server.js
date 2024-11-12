@@ -138,13 +138,28 @@ app.delete("/api/history", verifyToken, async (req, res) => {
   }
 });
 
+// // CORS configuration
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:3000", // Local development
+//       "https://lawnmower-project-frontend.vercel.app", // Frontend URL in Vercel
+//     ],
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//   })
+// );
+
 // CORS configuration
 app.use(
   cors({
     origin: [
-      "http://localhost:3000", // Local development
-      "https://lawnmower-project-frontend.vercel.app", // Frontend URL in Vercel
+      "https://lawnmower-project-frontend.vercel.app", // Your Vercel frontend
+      "http://localhost:3000", // Localhost for local development
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Include OPTIONS
+    allowedHeaders: ["Content-Type", "Authorization"], // Specify necessary headers
+    credentials: true,
   })
 );
+
+app.options("*", cors());
