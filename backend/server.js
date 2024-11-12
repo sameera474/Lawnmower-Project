@@ -139,3 +139,14 @@ app.delete("/api/history", verifyToken, async (req, res) => {
     res.status(500).json({ message: "Error clearing history data." });
   }
 });
+
+const cors = require("cors");
+// Allow all origins
+app.use(cors());
+// Allow specific origin(s)
+app.use(
+  cors({
+    origin:
+      "https://lawnmower-project-frontend-lzbujqndy-sameeras-projects-7a5677db.vercel.app/",
+  })
+);
