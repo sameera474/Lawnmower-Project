@@ -142,10 +142,10 @@ app.delete("/api/history", verifyToken, async (req, res) => {
 app.use(
   cors({
     origin: [
-      "http://localhost:3000", // Allow local development
-      "https://lawnmower-project-frontend.vercel.app", // Allow Vercel frontend
+      "http://localhost:3000", // Local development
+      "https://lawnmower-project-frontend.vercel.app", // Frontend URL in Vercel
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific HTTP methods
-    credentials: true, // Enable if you need to use cookies or sessions
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
   })
 );
