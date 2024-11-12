@@ -28,7 +28,16 @@ const SignUp = () => {
       }, 3000);
     } catch (error) {
       console.error("Signup failed:", error);
-      alert("Signup failed. Please try again.");
+      // Check for specific error responses
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        alert(`Signup failed: ${error.response.data.message}`);
+      } else {
+        alert("Signup failed. Please try again.");
+      }
     }
   };
 
