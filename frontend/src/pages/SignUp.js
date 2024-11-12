@@ -10,6 +10,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false); // State for confirmation popup
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -28,13 +29,15 @@ const SignUp = () => {
       }, 3000);
     } catch (error) {
       console.error("Signup failed:", error);
-      // Check for specific error responses
+      // Check if error response exists and has a data message
       if (
         error.response &&
         error.response.data &&
         error.response.data.message
       ) {
         alert(`Signup failed: ${error.response.data.message}`);
+      } else if (error.message === "Network Error") {
+        alert("Network error: Check your connection or backend server.");
       } else {
         alert("Signup failed. Please try again.");
       }
