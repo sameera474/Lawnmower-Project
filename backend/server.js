@@ -85,3 +85,7 @@ mongoose.connection.on("error", (err) => {
 mongoose.connection.on("disconnected", () => {
   console.log("Mongoose disconnected from DB");
 });
+
+app.get("/api/test", (req, res) => {
+  res.json({ message: "Backend is working!" });
+});
