@@ -4,17 +4,13 @@ const verifyToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
 
-  if (!token) {
+  if (!token)
     return res
       .status(403)
       .json({ message: "Access denied. No token provided." });
-  }
 
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-    if (err) {
-      console.error("Token verification failed:", err.message);
-      return res.status(403).json({ message: "Invalid token" });
-    }
+    if (err) return res.status(403).json({ message: "Invalid token" });
     req.user = user; // Attach user info to request
     next();
   });
