@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 const historyRoutes = require("./routes/history");
+const settingsRoutes = require("./routes/settings"); // Import settings route
 const app = express();
 
 const port = process.env.PORT || 5000;
@@ -60,10 +61,11 @@ mongoose
 // API Routes
 app.use("/api", authRoutes);
 app.use("/api", historyRoutes);
+app.use("/api", settingsRoutes); // Add settings route
 
 // Start server
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Server running on http://localhost:${port}`);
 });
 
 // Check if a connection is already established
