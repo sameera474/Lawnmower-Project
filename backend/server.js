@@ -36,3 +36,10 @@ app.use("/api", historyRoutes); // History routes
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+// Check if a connection is already established
+if (!mongoose.connection.readyState) {
+  mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+}
