@@ -1,15 +1,33 @@
-require("dotenv").config();
+require("dotenv").config(); // Load environment variables
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-
 const authRoutes = require("./routes/auth");
 const historyRoutes = require("./routes/history");
-
 const app = express();
+
 const port = process.env.PORT || 5000;
 
-app.use(cors());
+// Middleware for CORS and JSON parsing
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:3000",
+//       "https://lawnmower-project-frontend.vercel.app",
+//     ],
+//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     credentials: true,
+//   })
+// );
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // MongoDB connection
