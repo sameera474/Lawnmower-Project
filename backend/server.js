@@ -8,6 +8,24 @@ const app = express();
 
 const port = process.env.PORT || 5000;
 
+const connectDB = async () => {
+  if (mongoose.connection.readyState === 0) {
+    // Connect only if not already connected
+    try {
+      await mongoose.connect(process.env.MONGO_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+      console.log("MongoDB connected");
+    } catch (error) {
+      console.error("MongoDB connection error:", error);
+      process.exit(1); // Exit if connection fails
+    }
+  }
+};
+
+connectDB();
+
 // Middleware for CORS and JSON parsing
 app.use(
   cors({
@@ -55,3 +73,15 @@ if (!mongoose.connection.readyState) {
     useUnifiedTopology: true,
   });
 }
+
+mongoose.connection.on("connected", () => {
+  console.log("Mongoose connected to DB");
+});
+
+mongoose.connection.on("error", (err) => {
+  console.error("Mongoose connection error:", err);
+});
+
+mongoose.connection.on("disconnected", () => {
+  console.log("Mongoose disconnected from DB");
+});
