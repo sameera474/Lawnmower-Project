@@ -91,3 +91,14 @@ mongoose.connection.on("disconnected", () => {
 app.get("/api/test", (req, res) => {
   res.json({ message: "Backend is working!" });
 });
+
+// {
+//   "version": 2,
+//   "builds": [
+//     {
+//       "src": "server.js",
+//       "use": "@vercel/node"
+//     }
+//   ],
+//   "routes": [{ "src": "/api/(.*)", "dest": "/server.js" }]
+// }
