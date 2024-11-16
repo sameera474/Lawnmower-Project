@@ -1,10 +1,27 @@
 /* Navbar.css */
+
+.CompanyName h1 {
+  font-size: 20px;
+  padding: 0%;
+  letter-spacing: 15px;
+  padding-left: 20px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  padding: 15px 15px;
+  height: 50px;
+  background-color: #3b3b3b;
+  color: rgb(11, 11, 11);
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+.navbar li a:hover {
+  color: #007bff;
 }
 
 .navbar ul {
@@ -32,7 +49,7 @@
   position: absolute;
   right: 0;
   background-color: white;
-  color: #007bff;
+  color: #d1d1d1;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 5px;
@@ -47,7 +64,7 @@
 .dropdown-content button {
   display: block;
   padding: 8px 10px;
-  color: #007bff;
+  color: #1e1e1e;
   text-decoration: none;
   border: none;
   background: none;
@@ -57,5 +74,5 @@
 }
 
 .dropdown-content button.logout-button:hover {
-  background-color: #f8f9fa;
+  background-color: #e7e7e7;
 }

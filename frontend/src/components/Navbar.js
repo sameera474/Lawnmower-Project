@@ -10,6 +10,9 @@ const Navbar = ({ user, setUser }) => {
 
   return (
     <nav className="navbar">
+      <div className="CompanyName">
+        <h1>SAHKA</h1>
+      </div>
       <ul>
         <li>
           <Link to="/">Home</Link>
