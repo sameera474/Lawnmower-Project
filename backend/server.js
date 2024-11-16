@@ -93,12 +93,5 @@ app.get("/api/test", (req, res) => {
 });
 
 // {
-//   "version": 2,
-//   "builds": [
-//     {
-//       "src": "server.js",
-//       "use": "@vercel/node"
-//     }
-//   ],
-//   "routes": [{ "src": "/api/(.*)", "dest": "/server.js" }]
+//   "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
 // }
